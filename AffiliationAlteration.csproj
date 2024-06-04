@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <AssemblyName>UnlockAllFollowerForms</AssemblyName>
+        <AssemblyName>AffiliationAlteration</AssemblyName>
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <ReleaseVersion>1.0.0</ReleaseVersion>
         <TargetFramework>netstandard2.0</TargetFramework>
@@ -17,7 +17,11 @@
     <ItemGroup>
         <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
         <PackageReference Include="BepInEx.Core" Version="5.4.21" />
-        <PackageReference Include="UnityEngine.Modules" Version="2019.4.40" IncludeAssets="compile" />
+        <PackageReference Include="Krafs.Publicizer" Version="2.2.1">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="UnityEngine.Modules" Version="2021.3.16" IncludeAssets="compile" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
@@ -25,8 +29,17 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CultOfTheLamb.GameLibs" Version="*-*" />
-        <PackageReference Include="COTL_API" Version="*" />
+      <!-- Publicized Assemblies -->
+      <Publicize Include="Assembly-CSharp" />
+      <Publicize Include="COTL_API" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Assembly-CSharp">
+        <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cult of the Lamb\Cult Of The Lamb_Data\Managed\Assembly-CSharp.dll</HintPath>
+      </Reference>
+      <Reference Include="COTL_API">
+        <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cult of the Lamb\BepInEx\plugins\xhayper-COTL_API-0.2.2\plugins\io.github.xhayper.COTL_API\COTL_API.dll</HintPath>
+      </Reference>
+    </ItemGroup>
 </Project>

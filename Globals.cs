@@ -1,4 +1,6 @@
-﻿global using static CotLTemplateMod.Logging;
+﻿global using static ForceFriendship.Logging;
+global using static ForceFriendship.Helpers.Extentions;
+global using static ForceFriendship.Helpers.RelationshipHelper;
 
 global using BepInEx;
 global using BepInEx.Logging;

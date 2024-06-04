@@ -1,4 +1,4 @@
-﻿namespace CotLTemplateMod;
+﻿namespace ForceFriendship;
 
 public static class Logging
 {
